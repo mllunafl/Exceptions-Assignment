@@ -8,44 +8,54 @@ public class Main {
             textAppender.open("one");
             System.out.println("all good");
         } catch (AlreadyExistsException e) {
-            System.out.println("I shouldn't get an exception");
+            System.out.println("ERROR");
             System.out.println(e.getMessage());
         }
 
         try {
             textAppender.open("one");
+            System.out.println("ERROR");
         } catch (AlreadyExistsException e) {
             System.out.println("I expect an exception");
             System.out.println(e.getMessage());
         }
         try {
             textAppender.open("two");
+            System.out.println("all good");
         } catch (AlreadyExistsException e) {
-            System.out.println("I shouldn't get an exception");
+            System.out.println("ERROR");
             System.out.println(e.getMessage());
         }
 
 
         try {
             textAppender.append("two","Hi");
+            System.out.println("all good");
         } catch (DoesNotExistException e) {
+            System.out.println("ERROR");
             e.printStackTrace();
         } catch (CannotAppendException e) {
+            System.out.println("ERROR");
             e.printStackTrace();
         }
 
         try {
             textAppender.append("two","Hello");
+            System.out.println("all good");
         } catch (DoesNotExistException e) {
+            System.out.println("ERROR");
             e.printStackTrace();
         } catch (CannotAppendException e) {
+            System.out.println("ERROR");
             e.printStackTrace();
         }
         try {
             textAppender.append("three","Hello");
+            System.out.println("ERROR");
         } catch (DoesNotExistException e) {
             System.out.println("I should get an exception" + e.getMessage());
         } catch (CannotAppendException e) {
+            System.out.println("ERROR");
             e.printStackTrace();
         }
 
